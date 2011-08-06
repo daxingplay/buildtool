@@ -55,7 +55,7 @@ public class SmartCombo {
                     String comboFileName = (String) objectEntry.getKey();
                     String containNames = (String) objectEntry.getValue();
                     List<String> strings = splitPath(containNames, filterSpecialChar(split), root);
-                    outputFile(root + comboFileName + suffix, strings);
+                    outputFile(root + FilenameUtils.removeExtension(comboFileName)+ suffix, strings);
                 }
             }
         } catch (IOException e) {
@@ -99,7 +99,7 @@ public class SmartCombo {
      * @param input
      * @return
      */
-    public static String filterSpecialChar (String input) {
+    public static String filterSpecialChar(String input) {
         StringBuffer filtered = new StringBuffer(input.length());
         char c;
         for (int i = 0; i < input.length(); i++) {
